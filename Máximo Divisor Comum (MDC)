@@ -1,0 +1,30 @@
+//Máximo Divisor Comum (MDC)
+//javaScript:
+
+function mdc(a, b) {
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+console.log(mdc(56, 98));  // 14
+
+//Java:
+
+public class Main {
+    public static int mdc(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(mdc(56, 98));  // 14
+    }
+}
