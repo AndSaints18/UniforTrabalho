@@ -1,0 +1,29 @@
+//Contagem de Números Dentro de um Intervalo
+//JavaScript:
+
+function countInRange(arr, N) {
+  const lowerBound = arr[0];
+  return arr.filter(num => num >= lowerBound && num <= N).length;
+}
+
+console.log(countInRange([1, 2, 3, 4, 5], 4)); // 4
+
+//Java
+
+public class CountInRange {
+    public static int countInRange(int[] arr, int N) {
+        int lowerBound = arr[0];
+        int count = 0;
+        for (int num : arr) {
+            if (num >= lowerBound && num <= N) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(countInRange(arr, 4)); // 4
+    }
+}
