@@ -1,0 +1,39 @@
+//Ordenação com Quicksort
+//JavaScript:
+
+function quicksort(arr) {
+    if (arr.length <= 1) return arr;
+    const pivot = arr[0];
+    const left = arr.slice(1).filter(x => x < pivot);
+    const right = arr.slice(1).filter(x => x >= pivot);
+    return [...quicksort(left), pivot, ...quicksort(right)];
+}
+
+console.log(quicksort([5, 2, 9, 1, 5, 6]));  // [1, 2, 5, 5, 6, 9]
+
+//Java:
+
+import java.util.Arrays;
+
+public class QuickSort {
+    public static int[] quicksort(int[] arr) {
+        if (arr.length <= 1) return arr;
+        int pivot = arr[0];
+        int[] left = Arrays.stream(arr).filter(x -> x < pivot).toArray();
+        int[] right = Arrays.stream(arr).filter(x -> x > pivot).toArray();
+        return concatenate(quicksort(left), new int[]{pivot}, quicksort(right));
+    }
+
+    public static int[] concatenate(int[] left, int[] middle, int[] right) {
+        int[] result = new int[left.length + middle.length + right.length];
+        System.arraycopy(left, 0, result, 0, left.length);
+        System.arraycopy(middle, 0, result, left.length, middle.length);
+        System.arraycopy(right, 0, result, left.length + middle.length, right.length);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {10, 7, 8, 9, 1, 5};
+        System.out.println(Arrays.toString(quicksort(arr))); // [1, 5, 7, 8, 9, 10]
+    }
+}
