@@ -1,0 +1,24 @@
+//Somatório
+//JavaScript:
+
+function sum(numbers) {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum([1, 2, 3, 4]));  // 10
+
+//Java:
+
+public class Main {
+    public static int sum(int[] numbers) {
+        int total = 0;
+        for (int num : numbers) {
+            total += num;
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(sum(new int[]{1, 2, 3, 4}));  // 10
+    }
+}
